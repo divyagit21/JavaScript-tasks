@@ -70,10 +70,10 @@ const renderTasks = () => {
         taskCard.innerHTML = `
             <div class="box"></div>
             <div class="buttons">
-                <a href="${task.liveUrl}" target="_blank" rel="noopener noreferrer">
+                <a href="${task.live}" target="_blank" rel="noopener noreferrer">
                     <button>Live</button>
                 </a>
-                <a href="${task.codeUrl}" target="_blank" rel="noopener noreferrer">
+                <a href="${task.code}" target="_blank" rel="noopener noreferrer">
                     <button>Code</button>
                 </a>
                 <button class="about-btn" data-index="${index}">About</button>
