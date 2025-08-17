@@ -1,0 +1,139 @@
+@font-face{
+    font-family: 'classic';
+    src:url(../Classic\ Notes.otf);
+}
+body{
+    background-color: #070831;
+    margin:0;
+    color:#fff4d6;
+    height:100vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: classic;
+}
+input[type="color"] {
+    width: 200px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+.container{
+    position: relative;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px 0px rgba(231, 227, 227, 0.5);
+    width:50%;
+    height:70%;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: row;
+    gap:10%;
+    flex-wrap: wrap;
+}
+.upper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.content{
+    height: 15%;
+    top: 20%;
+    position: absolute;
+    box-shadow: 5px 5px 10px 0px rgba(231, 227, 227, 0.5);
+    width: 90%;
+    /* color: black; */
+    font-size: 15px;
+    padding: 5px;
+    color: #fff4d6;
+}
+#copyButton {
+    background-color: inherit;
+    color: white;
+    padding: 5px 5px;
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+#copyButton:hover {
+    background-color: #3700b3;
+}
+
+.direction {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 2px;
+}
+.box{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    color: black;
+}
+
+/* Up arrow */
+.up::before {
+    content: '↑';
+    font-size: 20px;
+}
+
+/* Right arrow */
+.right::before {
+    content: '→';
+    font-size: 20px;
+}
+
+/* Down arrow */
+.down::before {
+    content: '↓';
+    font-size: 20px;
+}
+
+/* Left arrow */
+.left::before {
+    content: '←';
+    font-size: 20px;
+}
+
+/* Up-right diagonal */
+.up-right::before {
+    content: '↗';
+    font-size: 20px;
+}
+
+/* Down-right diagonal */
+.down-right::before {
+    content: '↘';
+    font-size: 20px;
+}
+
+/* Down-left diagonal */
+.down-left::before {
+    content: '↙';
+    font-size: 20px;
+}
+
+/* Up-left diagonal */
+.up-left::before {
+    content: '↖';
+    font-size: 20px;
+}

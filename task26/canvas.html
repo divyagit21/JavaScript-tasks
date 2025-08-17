@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body {
+            background-color: #070831;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas1"></canvas>
+    <canvas id="canvas2"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas1');
+        const cxt = canvas.getContext('2d');
+        canvas.width = 500;
+        canvas.height = 500;
+        var x = 20;
+        var bounce=false;
+        function animation() {
+            cxt.fillStyle = 'white';
+            cxt.fillRect(10, 10, canvas.width, canvas.height)
+
+            cxt.fillStyle = 'red';
+            cxt.fillRect(x, 20, 100, 100);
+            if (bounce) {
+                x = x - 5;
+            }
+            else {
+                x = x + 5;
+            }
+            if(x+100>=500){
+                bounce=true;
+            }
+            if(x<=15){
+                bounce=false;
+            }
+            requestAnimationFrame(animation)
+        }
+        animation();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+body, html {
+    background-color: #070831;
+    color:#fff4d6;
+    height: 100%;
+    margin: 0;
+    position: relative;
+  }
+  
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .alerts{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .Success,.Error,.Info{
+    padding: 15px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    border-radius: 5px;
+    gap: 10px;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  .return{
+    animation: fadeOut 0.5s ease forwards;
+  }
+  .Error{
+    border: 1px solid red;
+    color: red;
+    background-color: rgb(255, 166, 166);
+  }
+  .Success{
+    border: 1px solid green;
+    color: green;
+    background-color: rgb(182, 255, 182) 
+  }
+  .Info{
+    border: 1px solid blue;
+    color: blue;
+    background-color: #8ff5fe; 
+  }
+  button{
+    padding: 15px;
+    font-size: 1.5rem;
+    width: 300px;
+    border-radius: 5px;
+  }
+  @keyframes fadeIn {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 100;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      transform: translateX(0px);
+      opacity: 100;
+    }
+    to {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+  }

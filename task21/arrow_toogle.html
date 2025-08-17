@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer API</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Information</div>
+        <div class="content" id="content">
+            <h2>Intersection Observer API</h2>
+
+            <p><strong>Overview:</strong></p>
+            <p>
+                The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a
+                target element with an ancestor element or with the top-level document's viewport.
+            </p>
+
+            <p>
+                Historically, detecting the visibility of an element or the relative visibility of two elements was a
+                difficult task with unreliable solutions. This often led to performance issues in browsers. The
+                Intersection Observer API helps to solve these problems by efficiently detecting when elements enter or
+                exit the viewport.
+            </p>
+
+            <p><strong>Use Cases:</strong></p>
+            <ul>
+                <li>Lazy-loading of images or other content as a page is scrolled.</li>
+                <li>Implementing "infinite scrolling" websites, where more content is loaded as you scroll.</li>
+                <li>Reporting visibility of advertisements for revenue calculation.</li>
+                <li>Triggering tasks or animations based on whether an element is visible to the user.</li>
+            </ul>
+
+            <p><strong>Traditional Method vs. Intersection Observer:</strong></p>
+            <p>
+                In the past, developers used event handlers and methods like
+                <code>Element.getBoundingClientRect()</code> to detect visibility, which could lead to performance
+                issues. The Intersection Observer API simplifies this by providing an optimized solution that avoids
+                running code on the main thread during scroll events.
+            </p>
+
+            <p><strong>How it Works:</strong></p>
+            <p>
+                The Intersection Observer API allows you to register a callback function that is executed when a target
+                element intersects with a specified root element (often the viewport). The API is designed to be more
+                efficient by delegating intersection detection to the browser, which can optimize the process as needed.
+            </p>
+
+            <p><strong>Important Limitations:</strong></p>
+            <p>
+                The Intersection Observer API doesn't provide pixel-level precision. It only tells you if an element
+                intersects by a certain percentage (defined by a threshold), which is sufficient for many common use
+                cases like lazy loading, infinite scrolling, or visibility tracking for advertisements.
+            </p>
+
+            <h3>Intersection Observer Concepts:</h3>
+            <p>
+                The Intersection Observer API lets you set up a callback function that gets triggered when:
+            </p>
+            <ul>
+                <li>A target element intersects with the root element (e.g., viewport).</li>
+                <li>The target element's intersection with the root changes.</li>
+            </ul>
+
+            <p><strong>Intersection Observer Options:</strong></p>
+            <p>
+                When creating an Intersection Observer, you pass in options that control how the observer behaves. The
+                options include:
+            </p>
+            <ul>
+                <li><strong>root:</strong> The element used as the viewport for checking visibility. If not specified or
+                    set to <code>null</code>, the browser's viewport is used.</li>
+                <li><strong>rootMargin:</strong> A margin around the root element to grow or shrink the root's bounding
+                    box. This can be useful to trigger events before or after the element enters the viewport. Default
+                    is "0px 0px 0px 0px".</li>
+                <li><strong>threshold:</strong> Defines at what percentage of the target’s visibility the callback
+                    should be triggered. A threshold of <code>1.0</code> means the callback runs when 100% of the
+                    element is visible. You can also use an array for multiple thresholds (e.g.,
+                    <code>[0, 0.5, 1.0]</code>).</li>
+            </ul>
+
+            <h3>Example: Creating an Intersection Observer</h3>
+            <p>
+                Here’s a simple example of how to create an Intersection Observer:
+            </p>
+            <pre><code>
+const options = {
+    root: document.querySelector("#scrollArea"),
+    rootMargin: "0px",
+    threshold: 1.0,
+};
+
+const observer = new IntersectionObserver(callback, options);
+            </code></pre>
+            <p>
+                In this example, the observer will watch for when 100% of the target element is visible within the
+                <code>#scrollArea</code> element. Once the intersection happens, the callback function is triggered.
+            </p>
+            continue: <a href=" https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"> continue
+                this blog
+            </a>
+        </div>
+    </div>
+    <a class="arrow" href="#content"><img class="image" alt="" src="./arrow.png"></a>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Ball</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #0d1117;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 20px;
+    }
+
+    .container {
+      background-color: #070831;
+      width: 500px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid #fff4d6;
+    }
+
+    .ball {
+      background-color: #fff4d6;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: green;
+      color: #fff4d6;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #005f00;
+    }
+
+    .button.stop {
+      background-color: crimson;
+    }
+
+    .button.stop:hover {
+      background-color: #a1001d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="ball"></div>
+  </div>
+
+  <div class="buttons">
+    <button class="button" onclick="startMoving()">Start</button>
+    <button class="button stop" onclick="stopMoving()">Stop</button>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    const ball = document.querySelector('.ball');
+    let intervalId = null;
+
+    function handleBall() {
+      const containerRect = container.getBoundingClientRect();
+      const x = Math.floor(Math.random() * (containerRect.width - 80));
+      const y = Math.floor(Math.random() * (containerRect.height - 80));
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+    }
+
+    function startMoving() {
+      if (!intervalId) {
+        handleBall();
+        intervalId = setInterval(handleBall, 1000);
+      }
+    }
+
+    function stopMoving() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  </script>
+
+</body>
+</html>

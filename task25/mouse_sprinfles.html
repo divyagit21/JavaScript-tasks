@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Sprinkler</title>
+    <style>
+        body {
+            background-color: #070831;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        class Particle {
+            constructor(x, y, speed, angle) {
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.angle = angle;
+                this.radius = Math.random() * 5
+                this.opacity = 1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.fillStyle = `hsla(60, 100%, 80%, ${this.opacity})`;
+                ctx.arc(this.x, this.y, this.radius, 0, 6);
+                ctx.fill();
+            }
+            update() {
+                this.x += this.speed * Math.cos(this.angle);
+                this.y += this.speed * Math.sin(this.angle);
+                this.opacity -= 0.01;
+                if (this.opacity <= 0.01) this.opacity = 0;
+                this.draw();
+            }
+        }
+
+        const noOfParticleMove = 2;
+        const noOfParticleClick = 100;
+        const noOfParticleMouseMove = []
+        const noOfParticleMouseClick = []
+        var mouseClick = false;
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            requestAnimationFrame(animate);
+            if (mouseClick) {
+                noOfParticleMouseClick.forEach((particle, index) => {
+                    particle.update();
+                    if (particle.opacity == 0) {
+                        noOfParticleMouseClick.splice(index, 1);
+                    }
+                })
+
+            }
+            noOfParticleMouseMove.forEach((particle, index) => {
+                particle.update();
+                if (particle.opacity == 0) {
+                    noOfParticleMouseMove.splice(index, 1);
+                }
+            })
+        }
+        animate()
+        window.addEventListener('mousemove', (e) => {
+            for (var i = 0; i < noOfParticleMove; i++) {
+                const x = e.x;
+                const y = e.y;
+                let speed = Math.random() * 3 - 1.5;
+                let angle = Math.random() * 1 ;
+                const particle = new Particle(x, y, speed, angle);
+                noOfParticleMouseMove.push(particle);
+            }
+        })
+        window.addEventListener('click', (e) => {
+            for (var i = 0; i < noOfParticleClick; i++) {
+                const x = e.x;
+                const y = e.y;
+                let speed = Math.random() * 3 - 1.5;
+                let angle = Math.random() * 1 ;
+                const particle = new Particle(x, y, speed, angle);
+                noOfParticleMouseClick.push(particle);
+            }
+            mouseClick = true;
+        })
+    </script>
+</body>
+
+</html>

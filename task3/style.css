@@ -1,0 +1,53 @@
+@font-face{
+    font-family: 'classic';
+    src:url(../Classic\ Notes.otf);
+}
+body{
+    margin: 15px;
+    background-color: #070831;
+    color:#fff4d6;
+    font-family: classic;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:'100vh';
+}
+.container {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px; 
+    margin:50px;
+}
+.dice{
+
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    padding:8px;
+    border:2px solid #070831;
+    font-size:20px;
+    background-color: #fff4d6;
+    transform:background-color 2s ease-in;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(27, 203, 27);
+}
+.heading{
+    font-size: 50px;
+}
+img{
+    height:100px;
+    width: 100px;
+}
+.roll{
+    height:150px;
+    width: 150px;
+}

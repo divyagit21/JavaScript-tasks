@@ -1,0 +1,44 @@
+@font-face{
+    font-family: 'classic';
+    src:url(../Classic\ Notes.otf);
+}
+body{
+    background-color: #070831;
+    margin:0;
+    color:#fff4d6;
+    height:100vh;
+    width:100%;
+    font-family: classic;
+}
+.container{
+    background-color: #070831;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+}
+.title{
+    font-size: 6rem;
+}
+.keys{
+    margin-top:40px;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:0 10% ;
+}
+.key{
+    padding:7px;
+    border:2px solid #fff4d6;
+    width:50px;
+    height:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
