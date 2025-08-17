@@ -33,6 +33,7 @@ body{
     justify-content: center;
     font-size: 1.5rem;
     padding: 10px;
+    text-align:center;
 }
 .flex-box{
     display: flex;
